@@ -103,6 +103,7 @@
   // 不蒜子访问统计
   const bs = document.createElement('script');
   bs.async = true;
-  bs.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+  bs.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+  bs.crossOrigin = 'anonymous';
   document.head.appendChild(bs);
 })();
