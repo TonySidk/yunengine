@@ -45,10 +45,20 @@
 
 @layer base {
   html {
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
   }
   body {
     @apply bg-bg-dark text-white font-sans antialiased overflow-x-hidden selection:bg-accent-blue selection:text-white;
+  }
+  section[id], footer[id] {
+    scroll-snap-align: start;
+  }
+  /* 短的区块吸附到中间，满屏的吸附到顶部 */
+  @media (min-height: 900px) {
+    section[id], footer[id] {
+      scroll-snap-align: center;
+    }
   }
 }
 
@@ -57,40 +67,6 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.text-gradient {
-  background: linear-gradient(to right, #ffffff, #a0a0a0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-accent {
-  background: linear-gradient(to right, var(--color-accent-blue), var(--color-accent-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.glow-effect {
-  position: relative;
-}
-
-.glow-effect::before {
-  content: '';
-  position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  background: linear-gradient(45deg, var(--color-accent-blue), var(--color-accent-purple), var(--color-accent-blue));
-  z-index: -1;
-  filter: blur(10px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: inherit;
-}
-
-.glow-effect:hover::before {
-  opacity: 0.5;
 }
 
 /* Scroll animations */

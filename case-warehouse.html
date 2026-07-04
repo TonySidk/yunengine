@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <title>工业仓储管理系统 - 云芽引擎</title>
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="/src/background.js"></script>
+    <script type="module" src="/src/header.js"></script>
+    <script type="module" src="/src/footer.js"></script>
+  </head>
+  <body data-header-variant="detail" data-footer-variant="simple" class="bg-transparent min-h-screen text-white font-sans antialiased selection:bg-accent-blue selection:text-white overflow-x-hidden">
+
+    <main class="pt-16">
+
+      <!-- Hero -->
+      <section class="py-20 md:py-32 relative z-10">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto fade-in-up">
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 text-xs font-mono text-accent-blue border border-accent-blue/30 rounded-full bg-accent-blue/5">Vue 2</span>
+              <span class="px-3 py-1 text-xs font-mono text-accent-blue border border-accent-blue/30 rounded-full bg-accent-blue/5">SpringBoot</span>
+              <span class="px-3 py-1 text-xs font-mono text-accent-blue border border-accent-blue/30 rounded-full bg-accent-blue/5">MySQL</span>
+              <span class="px-3 py-1 text-xs font-mono text-accent-blue border border-accent-blue/30 rounded-full bg-accent-blue/5">Redis</span>
+              <span class="px-3 py-1 text-xs font-mono text-accent-blue border border-accent-blue/30 rounded-full bg-accent-blue/5">WebSocket</span>
+              <span class="px-3 py-1 text-xs font-mono text-accent-blue border border-accent-blue/30 rounded-full bg-accent-blue/5">微信小程序</span>
+            </div>
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-display font-bold mb-6 leading-tight">
+              工业仓储管理系统
+            </h1>
+            <p class="text-xl text-gray-400 leading-relaxed max-w-2xl">
+              从纸质单据到扫码出入库——为某制造企业搭建的条码化仓储管理平台，覆盖入库、出库、盘点、批次追溯全流程。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 项目背景 -->
+      <section class="py-16 relative z-10">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto fade-in-up">
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">项目背景</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mb-8"></div>
+            <div class="glass-panel p-8 md:p-10 rounded-3xl text-gray-300 leading-relaxed space-y-4">
+              <p>某制造企业拥有 3 个独立仓库，管理数千种原材料和成品。原有的出入库流程完全依赖纸质单据和人工记忆——仓管员凭经验找货、手写记录、月底统一录入 Excel。</p>
+              <p>核心痛点：<strong class="text-white">日均盘点耗时 4 小时</strong>，错发漏发频繁，库存准确率仅 72%；三个仓库数据割裂，总部无法实时掌握库存状态；批次追溯靠翻旧单据，效率极低。</p>
+              <p>客户需要一个能同时覆盖<strong class="text-white">PC 端管理后台</strong>和<strong class="text-white">移动端扫码操作</strong>的一体化方案。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 技术架构图 -->
+      <section class="py-16 relative z-10">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto fade-in-up">
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">技术架构</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mb-8"></div>
+            <div class="glass-panel p-6 md:p-10 rounded-3xl overflow-x-auto">
+              <svg viewBox="0 0 900 360" class="w-full min-w-[700px]" style="max-height: 400px;">
+                <!-- 列1: 用户端 -->
+                <rect x="10" y="30" width="150" height="300" rx="12" fill="rgba(0,136,255,0.08)" stroke="rgba(0,136,255,0.2)" stroke-width="1"/>
+                <text x="85" y="58" text-anchor="middle" fill="rgba(0,136,255,0.6)" font-size="11" font-weight="600">用户端</text>
+                <rect x="25" y="80" width="120" height="40" rx="8" fill="rgba(0,136,255,0.12)" stroke="rgba(0,136,255,0.25)" stroke-width="1"/>
+                <text x="85" y="105" text-anchor="middle" fill="#c0dfff" font-size="12">Vue 管理后台</text>
+                <rect x="25" y="135" width="120" height="40" rx="8" fill="rgba(0,136,255,0.12)" stroke="rgba(0,136,255,0.25)" stroke-width="1"/>
+                <text x="85" y="160" text-anchor="middle" fill="#c0dfff" font-size="12">微信扫码小程序</text>
+                <rect x="25" y="190" width="120" height="40" rx="8" fill="rgba(0,136,255,0.06)" stroke="rgba(0,136,255,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="85" y="215" text-anchor="middle" fill="rgba(0,136,255,0.4)" font-size="11">H5 移动端（规划）</text>
+
+                <!-- 箭头 1→2 -->
+                <line x1="160" y1="180" x2="210" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="2" marker-end="url(#arrow)"/>
+
+                <!-- 列2: 网关层 -->
+                <rect x="215" y="30" width="150" height="300" rx="12" fill="rgba(138,43,226,0.08)" stroke="rgba(138,43,226,0.2)" stroke-width="1"/>
+                <text x="290" y="58" text-anchor="middle" fill="rgba(138,43,226,0.6)" font-size="11" font-weight="600">网关与接入</text>
+                <rect x="230" y="80" width="120" height="40" rx="8" fill="rgba(138,43,226,0.12)" stroke="rgba(138,43,226,0.25)" stroke-width="1"/>
+                <text x="290" y="105" text-anchor="middle" fill="#e0c0ff" font-size="12">Nginx 反向代理</text>
+                <rect x="230" y="135" width="120" height="40" rx="8" fill="rgba(138,43,226,0.12)" stroke="rgba(138,43,226,0.25)" stroke-width="1"/>
+                <text x="290" y="160" text-anchor="middle" fill="#e0c0ff" font-size="12">JWT 身份认证</text>
+                <rect x="230" y="190" width="120" height="40" rx="8" fill="rgba(138,43,226,0.12)" stroke="rgba(138,43,226,0.25)" stroke-width="1"/>
+                <text x="290" y="215" text-anchor="middle" fill="#e0c0ff" font-size="12">接口限流 / 日志</text>
+
+                <!-- 箭头 2→3 -->
+                <line x1="365" y1="180" x2="415" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="2" marker-end="url(#arrow)"/>
+
+                <!-- 列3: 业务服务 -->
+                <rect x="420" y="30" width="150" height="300" rx="12" fill="rgba(0,255,157,0.06)" stroke="rgba(0,255,157,0.15)" stroke-width="1"/>
+                <text x="495" y="58" text-anchor="middle" fill="rgba(0,255,157,0.5)" font-size="11" font-weight="600">业务服务</text>
+                <rect x="435" y="80" width="120" height="40" rx="8" fill="rgba(0,255,157,0.08)" stroke="rgba(0,255,157,0.18)" stroke-width="1"/>
+                <text x="495" y="105" text-anchor="middle" fill="#c0ffe0" font-size="12">入库管理服务</text>
+                <rect x="435" y="130" width="120" height="40" rx="8" fill="rgba(0,255,157,0.08)" stroke="rgba(0,255,157,0.18)" stroke-width="1"/>
+                <text x="495" y="155" text-anchor="middle" fill="#c0ffe0" font-size="12">出库管理服务</text>
+                <rect x="435" y="180" width="120" height="40" rx="8" fill="rgba(0,255,157,0.08)" stroke="rgba(0,255,157,0.18)" stroke-width="1"/>
+                <text x="495" y="205" text-anchor="middle" fill="#c0ffe0" font-size="12">批次追溯服务</text>
+                <rect x="435" y="230" width="120" height="40" rx="8" fill="rgba(0,255,157,0.08)" stroke="rgba(0,255,157,0.18)" stroke-width="1"/>
+                <text x="495" y="255" text-anchor="middle" fill="#c0ffe0" font-size="12">库存看板服务</text>
+
+                <!-- 箭头 3→4 -->
+                <line x1="570" y1="180" x2="620" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="2" marker-end="url(#arrow)"/>
+
+                <!-- 列4: 数据层 -->
+                <rect x="625" y="30" width="150" height="300" rx="12" fill="rgba(255,107,107,0.06)" stroke="rgba(255,107,107,0.15)" stroke-width="1"/>
+                <text x="700" y="58" text-anchor="middle" fill="rgba(255,107,107,0.5)" font-size="11" font-weight="600">数据层</text>
+                <rect x="640" y="85" width="120" height="40" rx="8" fill="rgba(255,107,107,0.08)" stroke="rgba(255,107,107,0.18)" stroke-width="1"/>
+                <text x="700" y="110" text-anchor="middle" fill="#ffd0d0" font-size="12">MySQL 主库</text>
+                <rect x="640" y="140" width="120" height="40" rx="8" fill="rgba(255,107,107,0.08)" stroke="rgba(255,107,107,0.18)" stroke-width="1"/>
+                <text x="700" y="165" text-anchor="middle" fill="#ffd0d0" font-size="12">Redis 缓存</text>
+                <rect x="640" y="195" width="120" height="40" rx="8" fill="rgba(255,107,107,0.08)" stroke="rgba(255,107,107,0.18)" stroke-width="1"/>
+                <text x="700" y="220" text-anchor="middle" fill="#ffd0d0" font-size="12">文件存储 OSS</text>
+                <rect x="640" y="250" width="120" height="40" rx="8" fill="rgba(255,107,107,0.04)" stroke="rgba(255,107,107,0.10)" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="700" y="275" text-anchor="middle" fill="rgba(255,107,107,0.3)" font-size="11">定时备份脚本</text>
+
+                <!-- 箭头 4→5 -->
+                <line x1="775" y1="180" x2="825" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="2" marker-end="url(#arrow)"/>
+
+                <!-- 列5: 基础设施 -->
+                <rect x="730" y="30" width="155" height="300" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <text x="797" y="58" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="11" font-weight="600">基础设施</text>
+                <rect x="743" y="85" width="130" height="36" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <text x="808" y="108" text-anchor="middle" fill="#999" font-size="11">Linux Ubuntu 20.04</text>
+                <rect x="743" y="132" width="130" height="36" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <text x="808" y="155" text-anchor="middle" fill="#999" font-size="11">Docker 容器化</text>
+                <rect x="743" y="179" width="130" height="36" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <text x="808" y="202" text-anchor="middle" fill="#999" font-size="11">Nginx 静态资源</text>
+                <rect x="743" y="226" width="130" height="36" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <text x="808" y="249" text-anchor="middle" fill="#999" font-size="11">CI/CD (Jenkins)</text>
+
+                <defs>
+                  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="rgba(255,255,255,0.2)"/>
+                  </marker>
+                </defs>
+                <text x="450" y="18" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="10" letter-spacing="0.3em">系统架构总览</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 核心功能 -->
+      <section class="py-16 relative z-10">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto fade-in-up">
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">核心功能</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mb-8"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="glass-panel p-6 rounded-2xl">
+                <div class="text-accent-blue text-lg font-bold mb-2">扫码出入库</div>
+                <p class="text-gray-400 text-sm leading-relaxed">员工用微信小程序扫描商品条码，自动识别商品信息与目标库位，3 秒完成出库/入库。支持批量扫码和异常拦截（错发预警）。</p>
+              </div>
+              <div class="glass-panel p-6 rounded-2xl">
+                <div class="text-accent-purple text-lg font-bold mb-2">三级库位管理</div>
+                <p class="text-gray-400 text-sm leading-relaxed">仓库 → 货架 → 库位三级结构，每个库位有唯一编码。系统自动推荐最优存放位置，减少拣货路径。</p>
+              </div>
+              <div class="glass-panel p-6 rounded-2xl">
+                <div class="text-accent-green text-lg font-bold mb-2">全链路批次追溯</div>
+                <p class="text-gray-400 text-sm leading-relaxed">从采购入库到生产领料到成品出库，每一件商品都能追溯到来源批次和操作记录。满足 ISO 质量管理审核要求。</p>
+              </div>
+              <div class="glass-panel p-6 rounded-2xl">
+                <div class="text-accent-blue text-lg font-bold mb-2">实时库存看板</div>
+                <p class="text-gray-400 text-sm leading-relaxed">WebSocket 实时推送库存变动，大屏展示各仓库库存状态、出入库趋势、低库存预警。管理者随时掌握全局。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 技术栈详情 -->
+      <section class="py-16 relative z-10">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto fade-in-up">
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-6">技术栈详情</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mb-8"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="glass-panel p-6 rounded-2xl">
+                <div class="text-accent-blue font-bold text-lg mb-4">后端</div>
+                <ul class="text-gray-400 text-sm space-y-2">
+                  <li>SpringBoot 2.7</li>
+                  <li>MyBatis Plus</li>
+                  <li>MySQL 8.0</li>
+                  <li>Redis 6</li>
+                  <li>WebSocket</li>
+                </ul>
+              </div>
+              <div class="glass-panel p-6 rounded-2xl">
+                <div class="text-accent-purple font-bold text-lg mb-4">前端</div>
+                <ul class="text-gray-400 text-sm space-y-2">
+                  <li>Vue 2 + Element UI</li>
+                  <li>ECharts 数据可视化</li>
+                  <li>Axios</li>
+                  <li>微信小程序原生</li>
+                </ul>
+              </div>
+              <div class="glass-panel p-6 rounded-2xl">
+                <div class="text-accent-green font-bold text-lg mb-4">基础设施</div>
+                <ul class="text-gray-400 text-sm space-y-2">
+                  <li>Linux + Docker</li>
+                  <li>Nginx 反向代理</li>
+                  <li>Jenkins CI/CD</li>
+                  <li>OSS 文件存储</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 导航 -->
+      <section class="py-16 relative z-10">
+        <div class="container mx-auto px-6 text-center">
+          <div class="flex flex-col sm:flex-row justify-center gap-6 fade-in-up">
+            <a href="cases.html" class="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-lg font-medium hover:border-accent-blue transition-all duration-300 text-white inline-flex items-center justify-center gap-2">
+              ← 查看全部案例
+            </a>
+            <a href="/" class="px-8 py-4 bg-gradient-to-r from-accent-blue to-accent-purple rounded-lg text-lg font-medium hover:shadow-[0_0_25px_rgba(0,136,255,0.4)] transition-all duration-300 text-white inline-flex items-center justify-center">
+              返回首页
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer (injected by footer.js) -->
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

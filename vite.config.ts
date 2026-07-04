@@ -1,5 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
+import {resolve} from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
@@ -10,11 +11,19 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      rollupOptions: {
+        input: {
+          main: resolve(__dirname, 'index.html'),
+          cases: resolve(__dirname, 'cases.html'),
+          'case-warehouse': resolve(__dirname, 'case-warehouse.html'),
+          'case-payment': resolve(__dirname, 'case-payment.html'),
+          'case-mall': resolve(__dirname, 'case-mall.html'),
+        },
+      },
+    },
     server: {
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
   };

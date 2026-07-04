@@ -272,13 +272,6 @@ import './index.css';
         lastY = mouseY;
     });
 
-    // 额外：键盘 M 键切换鼠标指针显示 (方便查看)
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'm' || e.key === 'M') {
-            document.body.classList.toggle('cursor-none');
-        }
-    });
-
     console.log('✨ 彗星拖尾已启动！');
 })();
 
@@ -303,4 +296,36 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fade-in-up, .slide-in-right, .slide-in-left').forEach((el) => {
         observer.observe(el);
     });
+
+    // 微信二维码弹窗
+    const btn = document.getElementById('btnWechat');
+    const modal = document.getElementById('wechatModal');
+    const close = document.getElementById('closeModal');
+    const inner = modal?.querySelector('.glass-panel');
+
+    function openModal() {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100');
+        inner?.classList.remove('scale-90');
+        inner?.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.classList.remove('opacity-100');
+        inner?.classList.add('scale-90');
+        inner?.classList.remove('scale-100');
+        document.body.style.overflow = '';
+    }
+
+    btn?.addEventListener('click', openModal);
+    close?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
 });
+
