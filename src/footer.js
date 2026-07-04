@@ -100,10 +100,11 @@
   footer.innerHTML = isHome ? fullHtml : simpleHtml;
   document.body.appendChild(footer);
 
-  // 不蒜子访问统计
-  const bs = document.createElement('script');
-  bs.async = true;
-  bs.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-  bs.crossOrigin = 'anonymous';
-  document.head.appendChild(bs);
+  // 不蒜子访问统计（延迟确保 DOM 就绪）
+  requestAnimationFrame(() => {
+    const bs = document.createElement('script');
+    bs.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+    bs.crossOrigin = 'anonymous';
+    document.head.appendChild(bs);
+  });
 })();
