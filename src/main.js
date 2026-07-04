@@ -271,8 +271,6 @@ import './index.css';
         lastX = mouseX;
         lastY = mouseY;
     });
-
-    console.log('✨ 彗星拖尾已启动！');
 })();
 
 // Scroll Animations
