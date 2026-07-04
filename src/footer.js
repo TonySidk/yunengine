@@ -10,7 +10,7 @@
     <div class="container mx-auto px-6 relative z-10">
       <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="text-lg font-display font-bold tracking-widest text-white">云芽引擎<span class="text-accent-blue">.</span></div>
-        <div class="text-gray-500 text-sm">&copy; 2026 云芽引擎. 保留所有权利。</div>
+        <div class="text-gray-500 text-sm">&copy; 2026 云芽引擎. 保留所有权利。 <span id="busuanzi_container_site_uv" class="text-gray-600">| 👁 <span id="busuanzi_value_site_uv"></span> 次访问</span></div>
       </div>
     </div>`;
 
@@ -91,7 +91,7 @@
 
       <div class="pt-8 border-t border-white/10">
         <p class="text-gray-500 text-sm text-center">
-          &copy; 2026 云芽引擎 (YunEngine). 保留所有权利。yunengine.cn
+          &copy; 2026 云芽引擎 (YunEngine). 保留所有权利。yunengine.cn <span id="busuanzi_container_site_uv">| 👁 <span id="busuanzi_value_site_uv"></span> 次访问</span>
         </p>
       </div>
     </div>`;
@@ -99,4 +99,10 @@
   footer.className = isHome ? 'pt-32 pb-12 relative overflow-hidden' : 'pt-16 pb-8 relative overflow-hidden';
   footer.innerHTML = isHome ? fullHtml : simpleHtml;
   document.body.appendChild(footer);
+
+  // 不蒜子访问统计
+  const bs = document.createElement('script');
+  bs.async = true;
+  bs.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+  document.head.appendChild(bs);
 })();
