@@ -308,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('opacity-100');
         inner?.classList.remove('scale-90');
         inner?.classList.add('scale-100');
+        document.body.classList.remove('cursor-none');
         document.body.style.overflow = 'hidden';
     }
 
@@ -316,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('opacity-100');
         inner?.classList.add('scale-90');
         inner?.classList.remove('scale-100');
+        document.body.classList.add('cursor-none');
         document.body.style.overflow = '';
     }
 
